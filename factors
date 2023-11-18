@@ -9,78 +9,70 @@ import sys
 
 def pollard_rho(n):
 
-    if n % 2 == 0:
+if n % 2 == 0:
+ return 2
 
-        return 2
+ x = 2
 
-   
+ y = 2
 
-    x = 2
+ d = 1
 
-    y = 2
+ # Define the function f(x) using a lambda function
 
-    d = 1
+if = lambda x: (x**2 + 1) % n
 
-    # Define the function f(x) using a lambda function
+ # Loop until a non-trivial factor is found
 
-    f = lambda x: (x**2 + 1) % n
+ while d == 1:
 
-    # Loop until a non-trivial factor is found
+ # Generate new values for x using the function f(x)
 
-    while d == 1:
+ x = f(x)
 
-        # Generate new values for x using the function f(x)
+ # Generate new values for y using the function f(f(y))
+ y = f(f(y))
 
-        x = f(x)
+ # Calculate the greatest common divisor between |x - y| and n
 
-        
+ d = math.gcd(abs(x - y), n)
 
-        # Generate new values for y using the function f(f(y))
+ # Return the non-trivial factor
 
-        y = f(f(y))
-
-        # Calculate the greatest common divisor between |x - y| and n
-
-        d = math.gcd(abs(x - y), n)
-
-    # Return the non-trivial factor
-
-    return d
+ return d
 
 
 def main():
 
-    # Check if the correct number of command-line arguments is provided
+ # Check if the correct number of command-line arguments is provided
 
-    if len(sys.argv) != 2:
+ if len(sys.argv) != 2:
 
-        # Print the correct usage of the program
+ # Print the correct usage of the program
 
-        print("Usage: python factorize.py <file>")
+ print("Usage: python factorize.py <file>")
 
-        # Exit the program if the correct arguments are not provided
+ # Exit the program if the correct arguments are not provided
 
-        return
+ return
 
-    # Get the file path from the command-line argument
+ # Get the file path from the command-line argument
 
-    file_path = sys.argv[1]
+ file_path = sys.argv[1]
 
-    # start timing
+ # start timing
 
-    start_time = time.time()
+ start_time = time.time()
 
-    try:
+ try:
 
-        # Open the file in read mode
+ # Open the file in read mode
+ with open(file_path, 'r') as file:
 
-        with open(file_path, 'r') as file:
+ # Read all lines of the file into a lis
 
-        # Read all lines of the file into a lis
-
-            numbers = file.readlines()
-
-        # Iterate through each number in the list
+ numbers = file.readlines()
+ # Iterate through each number in the list
 
         for number in numbers:
 
@@ -123,4 +115,4 @@ def main():
 
 if __name__ == '__main__':
 
-    main()  # Call the main function when the script is executed
+ main()  # Call the main function when the script is executed
